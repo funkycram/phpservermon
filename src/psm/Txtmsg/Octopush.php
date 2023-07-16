@@ -90,7 +90,7 @@ class Octopush extends Core
         $err = curl_errno($ch);
         curl_close($ch);
 
-        if ($err != 0 || $httpcode != 201) {
+        if ($err != 0 || ($httpcode != 201 && $httpcode != 200)) {
             return $result['code'] . " - " . $result['message'];
         }
 
